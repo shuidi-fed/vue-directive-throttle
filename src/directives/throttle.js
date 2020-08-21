@@ -21,7 +21,7 @@ export default {
       return
     }
     // 判断外界影响节流因素
-    if (binding.value) {
+    if (binding.value !== undefined) {
       if (typeof binding.value !== 'boolean') {
         console.error(`error in [v-throttle="value"], invalid for "value", Expected Boolean, got ${getInstance(binding.value)}.`)
         return
