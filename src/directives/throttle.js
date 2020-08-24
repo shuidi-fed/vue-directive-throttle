@@ -20,7 +20,7 @@ export default {
       console.error(`error in [v-throttle:arg], invalid for "arg", Expected Numeric, got ${getInstance(timeout)}.`)
       return
     }
-    if (timeout< 0) {
+    if (timeout < 0) {
       console.error('error in [v-throttle:arg], invalid for "arg", Expected Nonnegative number')
       return
     }
