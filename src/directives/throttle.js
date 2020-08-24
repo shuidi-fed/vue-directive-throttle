@@ -17,7 +17,7 @@ export default {
     const timeout = +binding.arg
     // 判断过期时间
     if (Number.isNaN(timeout)) {
-      console.error(`error in [v-throttle:arg], invalid for "arg", Expected Numeric, got ${getInstance(timeout)}.`)
+      console.error(`error in [v-throttle:arg], invalid for "arg", Expected Numeric, got ${getInstance(binding.arg)}.`)
       return
     }
     if (timeout < 0) {
