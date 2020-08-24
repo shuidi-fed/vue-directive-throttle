@@ -12,7 +12,7 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      b: 1000,
+      b: 1,
       isThrottle: true
     }
   },

@@ -20,6 +20,10 @@ export default {
       console.error(`error in [v-throttle:arg], invalid for "arg", Expected Numeric, got ${getInstance(timeout)}.`)
       return
     }
+    if (+binding.arg < 0) {
+      console.error('error in [v-throttle:arg], invalid for "arg", Expected Nonnegative number')
+      return
+    }
     // 判断外界影响节流因素
     if (binding.value !== undefined) {
       if (typeof binding.value !== 'boolean') {
@@ -28,7 +32,7 @@ export default {
       }
       isThrottle = binding.value
     }
-    el.parentElement.addEventListener(
+    el.parentElement && el.parentElement.addEventListener(
       'click',
       (e) => {
         if (timer || !isThrottle) {
@@ -39,7 +43,7 @@ export default {
           clearTimeout(timer)
           timer = null
           // 未给值默认是500ms
-        }, timeout || 500)
+        }, timeout * 1000 || 500)
       },
       true
     )
