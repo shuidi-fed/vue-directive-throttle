@@ -14,9 +14,9 @@ export default {
   inserted: (el, binding) => {
     let timer = null
     let isThrottle = true // 外界影响节流因素
-    const timeout = binding.arg
+    const timeout = +binding.arg
     // 判断过期时间
-    if (timeout && typeof timeout !== 'number') {
+    if (Number.isNaN(timeout)) {
       console.error(`error in [v-throttle:arg], invalid for "arg", Expected Number, got ${getInstance(timeout)}.`)
       return
     }
