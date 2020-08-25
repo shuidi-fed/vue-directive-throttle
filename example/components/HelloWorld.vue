@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import throttle from "../directives/throttle"
+// import throttle from "@"
 export default {
   name: 'HelloWorld',
   data() {
@@ -16,9 +16,9 @@ export default {
       isThrottle: true
     }
   },
-  directives: {
-    throttle
-  },
+  // directives: {
+  //   throttle
+  // },
   methods: {
     clickFn(val) {
       console.log(val)
