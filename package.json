@@ -1,19 +1,19 @@
 {
-  "name": "vue-directive",
-  "version": "0.1.0",
-  "private": true,
+  "name": "sd-throttle",
+  "description": "sd-throttle is an prevent duplicate clicks directive for vue.js.",
+  "version": "1.0.1",
+  "private": false,
+  "main": "dist/sd-throttle.min.js",
   "scripts": {
     "start": "npm run serve",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "doc": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "rollup": "rollup -c"
   },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11"
-  },
   "devDependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11",
     "@babel/core": "^7.11.4",
     "@babel/plugin-external-helpers": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
@@ -29,6 +29,22 @@
     "rollup-plugin-uglify": "^6.0.4",
     "vue-template-compiler": "^2.6.11"
   },
+  "files": [
+    "dist/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuidi-fed/vue-directive-throttle.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "yuruyuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shuidi-fed/vue-directive-throttle/issues"
+  },
+  "homepage": "https://github.com/shuidi-fed/vue-directive-throttle#readme",
   "browserslist": [
     "> 1%",
     "last 2 versions",
