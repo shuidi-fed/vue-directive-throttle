@@ -1,45 +1,38 @@
 <template>
-  <div class="hello">
-    <div style="position: fixed; height:0px;">
-      <button v-throttle:[b]="isThrottle" @click="clickFn('点击了button')">click点击</button>
+  <div>
+    <h2>Example</h2>
+    <div>
+      <div>点击按钮，1秒内只触发一次</div>
+      <button v-throttle:[b]="isThrottle" @click="clickFn">click点击 {{num}}</button>
     </div>
   </div>
 </template>
 
 <script>
 // import throttle from "@"
+
 export default {
   name: 'HelloWorld',
   data() {
     return {
       b: 1,
-      isThrottle: true
+      isThrottle: true,
+      num: 0
     }
   },
   // directives: {
   //   throttle
   // },
   methods: {
-    clickFn(val) {
-      console.log(val)
+    clickFn() {
+      this.num ++
     },
   },
 }
 </script>
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+button {
+  margin: 10px;
 }
 </style>

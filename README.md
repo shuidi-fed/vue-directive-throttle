@@ -1,14 +1,17 @@
 # sd-throttle
 
 sd-throttle is an prevent duplicate clicks directive for vue.js.
+
+[![NPM version](https://img.shields.io/npm/v/sd-throttle.svg?style=flat)](https://npmjs.org/package/sd-throttle)
+
 # Install
 
-```Bash
+```bash
 npm install sd-throttle --save
 ```
 in vue:
 
-```JavaScript
+```js
 // register globally
 import throttle from 'sd-throttle'
 Vue.use(throttle)
@@ -21,13 +24,13 @@ new Vue({
 
 ```
 ## Usage
-```HTML
+```html
 <button
   v-throttle:[timeout]="isThrottle"
   @click="clickFn('click button')">click</button>
 ```
 
-```JavaScript
+```js
 new Vue({
   el: '#app',
   data: {
