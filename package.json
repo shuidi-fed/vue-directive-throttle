@@ -1,7 +1,7 @@
 {
   "name": "sd-throttle",
   "description": "sd-throttle is an prevent duplicate clicks directive for vue.js.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "main": "dist/sd-throttle.umd.min.js",
   "scripts": {
