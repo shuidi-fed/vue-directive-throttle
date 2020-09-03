@@ -1,19 +1,17 @@
 {
   "name": "sd-throttle",
   "description": "sd-throttle is an prevent duplicate clicks directive for vue.js.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
-  "main": "dist/sd-throttle.min.js",
+  "main": "dist/sd-throttle.umd.min.js",
   "scripts": {
     "start": "npm run serve",
     "serve": "vue-cli-service serve",
     "doc": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "rollup": "rollup -c"
+    "build": "vue-cli-service build --target lib --name sd-throttle ./src/index.js --output /dist",
+    "lint": "vue-cli-service lint"
   },
   "devDependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11",
     "@babel/core": "^7.11.4",
     "@babel/plugin-external-helpers": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
@@ -21,12 +19,10 @@
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
+    "core-js": "^3.6.5",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "rollup": "^2.26.5",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-eslint": "^7.0.0",
-    "rollup-plugin-uglify": "^6.0.4",
+    "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11"
   },
   "files": [
