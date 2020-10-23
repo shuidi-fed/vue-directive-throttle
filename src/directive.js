@@ -13,15 +13,15 @@ const getInstance = function (data) {
   return instanceStr.substring(index + 1, instanceStr.length - 1)
 }
 const checkBindingValue = function (data) {
-  if (data === undefined) return true
+  if (data === undefined) return false
   if (typeof data !== 'boolean') {
     console.error(`error in [v-throttle="value"], invalid for "value", Expected Boolean, got ${getInstance(data)}.`)
-    return true
+    return false
   } else {
     return data
   }
 }
-let sdBindingValue = true // 外界影响节流因素
+let sdBindingValue = false // 外界影响节流因素
 export default {
   inserted: (el, binding) => {
     let timer = null
@@ -40,7 +40,7 @@ export default {
     el.parentElement && el.parentElement.addEventListener(
       'click',
       (e) => {
-        if (timer || !sdBindingValue) {
+        if (timer || sdBindingValue) {
           e.stopPropagation()
           return 
         }
