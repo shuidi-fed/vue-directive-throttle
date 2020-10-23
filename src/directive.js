@@ -3,6 +3,8 @@
  * @date 2020/08/19
  * @description click节流，默认500ms
  */
+
+
 // 获取数据类型
 const getInstance = function (data) {
   // "[object Array]"
@@ -10,11 +12,19 @@ const getInstance = function (data) {
   const index = instanceStr.indexOf(' ')
   return instanceStr.substring(index + 1, instanceStr.length - 1)
 }
+const checkBindingValue = function (data) {
+  if (data === undefined) return true
+  if (typeof data !== 'boolean') {
+    console.error(`error in [v-throttle="value"], invalid for "value", Expected Boolean, got ${getInstance(data)}.`)
+    return true
+  } else {
+    return data
+  }
+}
+let sdBindingValue = true // 外界影响节流因素
 export default {
   inserted: (el, binding) => {
     let timer = null
-    let isThrottle = true // 外界影响节流因素
-
     const timeout = +(binding.arg || 0.5)
     // 判断过期时间
     if (Number.isNaN(timeout)) {
@@ -26,19 +36,13 @@ export default {
       return
     }
     // 判断外界影响节流因素
-    if (binding.value !== undefined) {
-      if (typeof binding.value !== 'boolean') {
-        console.error(`error in [v-throttle="value"], invalid for "value", Expected Boolean, got ${getInstance(binding.value)}.`)
-        return
-      }
-      isThrottle = binding.value
-    }
+    sdBindingValue = checkBindingValue(binding.value)
     el.parentElement && el.parentElement.addEventListener(
       'click',
       (e) => {
-        if (timer || !isThrottle) {
+        if (timer || !sdBindingValue) {
           e.stopPropagation()
-          return
+          return 
         }
         timer = setTimeout(() => {
           clearTimeout(timer)
@@ -49,4 +53,8 @@ export default {
       true
     )
   },
+  update: (el, binding) => {
+    // 判断外界影响节流因素
+    sdBindingValue = checkBindingValue(binding.value)
+  }
 }
