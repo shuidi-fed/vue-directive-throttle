@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       b: 1,
-      isThrottle: true,
+      isThrottle: false,
       num: 0
     }
   },
